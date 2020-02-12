@@ -8,9 +8,11 @@ import (
 )
 
 func main() {
-	apiKey := "5240f691-60b0-4360-ac1f-601117c5408f"
-	var timeOutSec time.Duration = 30
 
+	testCardpr.Shooting(100000, 110)
+
+	apiKey := "5240f691-60b0-4360-ac1f-601117c5408f"
+	var timeOutSec time.Duration = 2
 	successBody := map[string]interface{}{
 		"app_key":    apiKey,
 		"phone":      "+79111111112",
@@ -42,8 +44,6 @@ func main() {
 	time.Sleep(2 * time.Second)
 	filedPhone := testCardpr.CopyMap(successBody)
 	testCardpr.PhoneFail(filedPhone, client)
-
-	testCardpr.Shooting(10000)
 
 	var input string
 	_, err := fmt.Scanln(&input)
